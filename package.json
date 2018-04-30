@@ -2,16 +2,19 @@
   "name": "bulmahead",
   "version": "1.0.0",
   "main": "src/bulmahead.js",
+  "description": "Simple autocomplete for bulma.io",
   "repository": "https://github.com/mattmezza/bulmahead.git",
   "author": "Matteo Merola <mattmezza@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "npx webpack --watch",
-    "lint": "npx standard --fix ./src/*"
+    "lint": "npx standard --fix ./src/*",
+    "gh:publish": "npx gh-pages -d demo"
   },
   "devDependencies": {
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
+    "gh-pages": "^1.1.0",
     "pre-commit": "^1.2.2",
     "standard": "^11.0.1",
     "webpack": "^4.6.0",

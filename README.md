@@ -26,3 +26,4 @@ Of course you can customize your function and contact your backend, the importan
 - `git clone https://gitbub.com/mattmezza/bulmahead.git`
 - `yarn install`
 - `yarn start`
+- open up your local version of `index.html` in `demo`
