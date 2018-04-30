@@ -3,7 +3,7 @@ BulmAhead
 
 ## Install
 
-`<script src="https://raw.githubusercontent.com/mattmezza/bulmahead/blob/master/dist/bulmahead.bundle.js"></script>`
+`<script src="https://rawgit.com/mattmezza/bulmahead/master/dist/bulmahead.bundle.js"></script>`
 
 ```html
 <div class="dropdown">
