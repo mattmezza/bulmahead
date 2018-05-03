@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce'
 
-let bulmahead = (id, idMenu, api, delay) => {
+let bulmahead = (id, idMenu, api, onSelect, delay) => {
   let input = document.getElementById(id)
   let menuEl = document.getElementById(idMenu)
   menuEl.innerHTML = '<div class="dropdown-content"></div>'
@@ -10,6 +10,9 @@ let bulmahead = (id, idMenu, api, delay) => {
     var val = e.target.text
     input.value = val
     menuEl.style.display = 'none'
+    if (onSelect) {
+      onSelect(val)
+    }
     return false
   }
 
@@ -20,21 +23,22 @@ let bulmahead = (id, idMenu, api, delay) => {
     if (value.length <= 2) {
       return
     }
-    let suggestions = api(value)
-    let suggestionsEl = suggestions.map(sugg => {
-      let a = document.createElement('a')
-      a.href = '#'
-      a.classList.add('dropdown-item')
-      a.innerHTML = sugg
-      a.addEventListener('click', setValue)
-      return a
+    api(value).then(suggestions => {
+      let suggestionsEl = suggestions.map(sugg => {
+        let a = document.createElement('a')
+        a.href = '#'
+        a.classList.add('dropdown-item')
+        a.innerHTML = sugg
+        a.addEventListener('click', setValue)
+        return a
+      })
+      suggestionsEl.map(suggEl => {
+        menuEl.childNodes[0].appendChild(suggEl)
+      })
+      if (suggestions.length > 0) {
+        menuEl.style.display = 'block'
+      }
     })
-    suggestionsEl.map(suggEl => {
-      menuEl.childNodes[0].appendChild(suggEl)
-    })
-    if (suggestions.length > 0) {
-      menuEl.style.display = 'block'
-    }
   }
   input.addEventListener('keyup', debounce(handleApi, delay))
 }
