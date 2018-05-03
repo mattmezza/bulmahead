@@ -7,11 +7,12 @@ let bulmahead = (id, idMenu, api, onSelect, delay) => {
 
   let setValue = e => {
     e.preventDefault()
-    var val = e.target.text
-    input.value = val
+    var label = e.target.text
+    var value = e.target.dataset.value
+    input.value = label
     menuEl.style.display = 'none'
     if (onSelect) {
-      onSelect(val)
+      onSelect({label, value})
     }
     return false
   }
