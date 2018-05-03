@@ -3,7 +3,7 @@ BulmAhead
 
 ## Install
 
-`<script src="https://rawgit.com/mattmezza/bulmahead/master/dist/bulmahead.bundle.js"></script>`
+`<script src="https://cdn.rawgit.com/mattmezza/bulmahead/master/dist/bulmahead.bundle.js"></script>`
 
 ```html
 <div class="dropdown">
@@ -15,11 +15,11 @@ BulmAhead
 ```
 
 ```js
-let st = ['Alabama', ..., 'Wyoming']
-bulmahead('input-id', 'menu-id', v => st.filter(s=>s.startsWith(v)).slice(0,5), 200);
+let st = [{label: 'Alabama', value: 'AL'}, ..., {label: 'Wyoming', value: 'WY'}]
+bulmahead('input-id', 'menu-id', v => new Promise((rs,rj) => rs(st.filter(s=>s.startsWith(v))), 200);
 ```
 
-Of course you can customize your function and contact your backend, the important thing is that you return an array of strings.
+Of course you can customize your function and contact your backend, the important thing is that you return an array of strings (you can see an example of an usage with fetch).
 
 ## Develop
 
