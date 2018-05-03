@@ -24,11 +24,12 @@ let bulmahead = (id, idMenu, api, onSelect, delay) => {
       return
     }
     api(value).then(suggestions => {
-      let suggestionsEl = suggestions.map(sugg => {
+      let suggestionsEl = suggestions.map(({label, value}) => {
         let a = document.createElement('a')
         a.href = '#'
         a.classList.add('dropdown-item')
-        a.innerHTML = sugg
+        a.innerHTML = label
+        a.dataset.value = value
         a.addEventListener('click', setValue)
         return a
       })

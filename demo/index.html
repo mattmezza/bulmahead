@@ -101,7 +101,10 @@
         var filtered = states.filter(function(state) {
           return state.startsWith(inputValue)
         })
-        var sliced = filtered.slice(0, 5)
+        var transformed = filtered.map(function(str) {
+          return {label: str, value: str}
+        })
+        var sliced = transformed.slice(0, 5)
         resolve(sliced)
       })
     }
