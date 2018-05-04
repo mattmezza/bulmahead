@@ -9,7 +9,7 @@
   "scripts": {
     "start": "npx webpack --watch",
     "lint": "npx standard --fix ./src/*",
-    "gh:publish": "npx build && npx gh-pages -d dist"
+    "gh:publish": "npx gh-pages -d dist"
   },
   "devDependencies": {
     "babel-loader": "^7.1.4",
