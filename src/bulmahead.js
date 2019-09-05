@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce'
 
-let bulmahead = (id, idMenu, api, onSelect, delay, minLen) => {
+let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
   let input = document.getElementById(id)
   let menuEl = document.getElementById(idMenu)
   menuEl.innerHTML = '<div class="dropdown-content"></div>'

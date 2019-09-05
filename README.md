@@ -16,7 +16,7 @@ BulmAhead
 
 ```js
 let st = [{label: 'Alabama', value: 'AL'}, ..., {label: 'Wyoming', value: 'WY'}]
-bulmahead('input-id', 'menu-id', v => new Promise((rs,rj) => rs(st.filter(s=>s.startsWith(v))), 200);
+bulmahead('input-id', 'menu-id', v => new Promise((rs,rj) => rs(st.filter(s=>s.startsWith(v))), 200, 2);
 ```
 
 Of course you can customize your function and contact your backend, the important thing is that you return an array of strings (you can see an example of an usage with fetch).
