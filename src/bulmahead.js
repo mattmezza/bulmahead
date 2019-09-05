@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce'
 
-let bulmahead = (id, idMenu, api, onSelect, delay) => {
+let bulmahead = (id, idMenu, api, onSelect, delay, minLen) => {
   let input = document.getElementById(id)
   let menuEl = document.getElementById(idMenu)
   menuEl.innerHTML = '<div class="dropdown-content"></div>'
@@ -21,7 +21,7 @@ let bulmahead = (id, idMenu, api, onSelect, delay) => {
     let value = e.target.value
     menuEl.style.display = 'none'
     menuEl.innerHTML = '<div class="dropdown-content"></div>'
-    if (value.length <= 2) {
+    if (value.length <= minLen) {
       return
     }
     api(value).then(suggestions => {
