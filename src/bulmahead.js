@@ -18,7 +18,7 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
   }
 
   let handleApi = e => {
-    if (e.metaKey) {
+    if (e.metaKey || e.key === 'Meta') {
       return
     }
     let value = e.target.value
