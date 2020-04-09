@@ -18,6 +18,9 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
   }
 
   let handleApi = e => {
+    if (e.metaKey) {
+      return
+    }
     let value = e.target.value
     menuEl.style.display = 'none'
     menuEl.innerHTML = '<div class="dropdown-content"></div>'
