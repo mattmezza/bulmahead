@@ -18,7 +18,8 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
   }
 
   let handleApi = e => {
-    if (e.metaKey || e.key === 'Meta') {
+    const badKeys = ['Meta', 'Shift', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'CapsLock']
+    if (badKeys.includes(e.key)) {
       return
     }
     let value = e.target.value
