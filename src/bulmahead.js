@@ -18,10 +18,6 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
   }
 
   let handleApi = e => {
-    const badKeys = ['Meta', 'Shift', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'CapsLock']
-    if (badKeys.includes(e.key)) {
-      return
-    }
     let value = e.target.value
     menuEl.style.display = 'none'
     menuEl.innerHTML = '<div class="dropdown-content"></div>'
@@ -46,7 +42,7 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
       }
     })
   }
-  input.addEventListener('keyup', debounce(handleApi, delay))
+  input.addEventListener('input', debounce(handleApi, delay))
 }
 
 export default bulmahead
