@@ -42,7 +42,7 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
       }
     })
   }
-  input.addEventListener('keyup', debounce(handleApi, delay))
+  input.addEventListener('input', debounce(handleApi, delay))
 }
 
 export default bulmahead
