@@ -1,6 +1,6 @@
 {
   "name": "bulmahead",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "main": "src/bulmahead.js",
   "description": "Simple autocomplete for bulma.io",
   "repository": "https://github.com/mattmezza/bulmahead.git",
