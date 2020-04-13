@@ -43,8 +43,10 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
     })
   }
   input.addEventListener('input', debounce(handleApi, delay))
-  input.addEventListener('focusout', function () {
-    menuEl.style.display = 'none'
+  input.addEventListener('focusout', function (e) {
+    if (e.relatedTarget === null || !e.relatedTarget.classList.contains('dropdown-item')) {
+      menuEl.style.display = 'none'
+    }
   })
   input.addEventListener('focusin', handleApi)
 }
