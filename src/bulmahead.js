@@ -1,32 +1,32 @@
 import debounce from 'lodash/debounce'
 
-let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
-  let input = document.getElementById(id)
-  let menuEl = document.getElementById(idMenu)
+const bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
+  const input = document.getElementById(id)
+  const menuEl = document.getElementById(idMenu)
   menuEl.innerHTML = '<div class="dropdown-content"></div>'
 
-  let setValue = e => {
+  const setValue = e => {
     e.preventDefault()
     var label = e.target.text
     var value = e.target.dataset.value
     input.value = label
     menuEl.style.display = 'none'
     if (onSelect) {
-      onSelect({label, value})
+      onSelect({ label, value })
     }
     return false
   }
 
-  let handleApi = e => {
-    let value = e.target.value
+  const handleApi = e => {
+    const value = e.target.value
     menuEl.style.display = 'none'
     menuEl.innerHTML = '<div class="dropdown-content"></div>'
     if (value.length <= minLen) {
       return
     }
     api(value).then(suggestions => {
-      let suggestionsEl = suggestions.map(({label, value}) => {
-        let a = document.createElement('a')
+      const suggestionsEl = suggestions.map(({ label, value }) => {
+        const a = document.createElement('a')
         a.href = '#'
         a.classList.add('dropdown-item')
         a.innerHTML = label
@@ -42,7 +42,7 @@ let bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
       }
     })
   }
-  let hideTimeout = undefined
+  let hideTimeout
   input.addEventListener('input', debounce(handleApi, delay))
   input.addEventListener('focusout', e => {
     hideTimeout = setTimeout(e => {
