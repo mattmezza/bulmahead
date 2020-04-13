@@ -42,7 +42,6 @@ const bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
       }
     })
   }
-  let hideTimeout
   input.addEventListener('input', debounce(handleApi, delay))
   input.addEventListener('focusout', e => {
     if (e.relatedTarget === null || !e.relatedTarget.classList.contains('dropdown-item')) {
@@ -50,10 +49,6 @@ const bulmahead = (id, idMenu, api, onSelect, delay, minLen = 2) => {
     }
   })
   input.addEventListener('focusin', e => {
-    if (hideTimeout !== undefined) {
-      clearTimeout(hideTimeout)
-      hideTimeout = undefined
-    }
     handleApi(e)
   })
 }
