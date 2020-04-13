@@ -4,23 +4,10 @@ module.exports = {
   entry: './src/bulmahead.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bulmahead.bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
-        }
-      }
-    ]
+    filename: 'bulmahead.bundle.js',
   },
   stats: {
-    colors: true
+    colors: true,
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
 }
