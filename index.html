@@ -52,7 +52,7 @@
         return resp.json()
       }).then(function(states) {
         return states.filter(function(state) {
-          return state.name.startsWith(inputValue)
+          return state.name.toLowerCase().startsWith(inputValue.toLowerCase())
         })
       }).then(function(filtered) {
         return filtered.map(function(state) {
